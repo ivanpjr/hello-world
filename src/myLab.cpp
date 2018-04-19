@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : hello-world.cpp
+// Name        : myLab.cpp
 // Author      : Ivan Pinheiro
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : myLab in C++
 //============================================================================
 
 #include <iostream>
