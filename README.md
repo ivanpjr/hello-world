@@ -1,3 +1,4 @@
 # hello-world
-First repo
-bla bla bla
+-First repo
+-Now working with Eclipse
+

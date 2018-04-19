@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1510799123/CYGWIN_PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1510799123/CYGWIN_PATH/operation=append
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1510799123/CYGWIN_PATH/value=C\:\\cygwin64
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1510799123/append=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1510799123/appendContributed=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1597058103/CYGWIN_PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1597058103/CYGWIN_PATH/operation=append
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1597058103/CYGWIN_PATH/value=C\:\\cygwin64
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1597058103/append=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1597058103/appendContributed=true

@@ -9,16 +9,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-	int n;
-	cout << "How many? ";
-	cin >> n;
-	for (int i; i<n; i++)
-	{
-		cout << "~=+";
-	}
-
+int main() {
+	cout << "!!!Hello World with GIT!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }
-
