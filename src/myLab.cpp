@@ -1,15 +1,38 @@
-//============================================================================
-// Name        : myLab.cpp
-// Author      : Ivan Pinheiro
-// Version     :
-// Copyright   : Your copyright notice
-// Description : myLab in C++
-//============================================================================
+// While.cpp : Defines the entry point for the console application.
+//
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
 
-int main() {
-	cout << "!!!Hello World with GIT!!!" << endl; // prints !!!Hello World!!!
-	return 0;
+int main()
+{
+    int x;
+    cout << "Enter a number" << endl;
+    cin >> x ;
+
+    bool prime = true;
+    int i=2;
+
+    while(i <= x/i)
+    {
+        int factor = x/i;
+//        cout << "i: " << i << " factor: " << factor << endl;
+        if (factor*i == x)
+        {
+            cout << "factor found: " << i << " * " << factor << endl;
+            prime = false;
+        }
+        i = i + 1;
+    }
+
+    cout << x << " is " ;
+    if (prime)
+        cout << "prime" << endl;
+    else
+        cout << "not prime" << endl;
+
+    return 0;
 }
+
