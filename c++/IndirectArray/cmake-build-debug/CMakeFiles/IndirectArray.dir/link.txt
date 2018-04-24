@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/IndirectArray.dir/main.cpp.o  -o IndirectArray 

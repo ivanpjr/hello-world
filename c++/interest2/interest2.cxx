@@ -2,24 +2,25 @@
 using namespace std;
 
 float balance (int balance, float interest) {
-	return balance * (1+(interest / 100));
+	return balance * (1+ interest / 100);
 }
 
 float reversedBalance (int balance, float interest) {
-// 	not possible, why??
-//	float bal = balance(balance, interest);
-	float bal = balance * (1+(interest / 100));
-	return bal * (1 / bal);
+	return balance / (1 + interest / 100);
 }
 
 int main() {
 
-//cout << "Enter amount: "; cin >> amount;
+int bal = 1000;
+float interest = 1.25;
+//cout << "Enter balance : "; cin >> balance;
 //cout << "Enter interest: "; cin >> interest;
-//cout << "Final amount: " << amount * (1+(interest / 100)) << endl;
 
-cout << "Final balance   : " << balance(100, 1.25) << endl;
-cout << "Reversed balance: " << reversedBalance(100, 1.25) << endl;
+float amount1 = balance(bal, interest);
+float amount2 = reversedBalance(amount1, interest);
+
+cout << "Final balance   : " << amount1 << endl;
+cout << "Reversed balance: " << amount2 << endl;
 
 
 return 0;
