@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/edbipjr/myLab/c++/WordCloud/WordCloud.cpp
+iostream
+-
+map
+-
+vector
+-
+string
+-
+algorithm
+-
+cctype
+-
+sstream
+-
+utility
+-
+numeric
+-
+random
+-
+

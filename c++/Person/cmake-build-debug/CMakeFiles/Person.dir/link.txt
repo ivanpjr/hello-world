@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Person.dir/main.cpp.o CMakeFiles/Person.dir/Person.cxx.o CMakeFiles/Person.dir/Dog.cxx.o  -o Person 

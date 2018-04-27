@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/WordCloud.dir/WordCloud.cpp.o  -o WordCloud 

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/edbipjr/myLab/c++/Person/Dog.cxx
+Dog.hxx
+/home/edbipjr/myLab/c++/Person/Dog.hxx
+
+/home/edbipjr/myLab/c++/Person/Dog.hxx
+string
+-
+iostream
+-
+
+/home/edbipjr/myLab/c++/Person/Person.cxx
+Person.hxx
+/home/edbipjr/myLab/c++/Person/Person.hxx
+
+/home/edbipjr/myLab/c++/Person/Person.hxx
+string
+-
+iostream
+-
+Dog.hxx
+/home/edbipjr/myLab/c++/Person/Dog.hxx
+
+/home/edbipjr/myLab/c++/Person/main.cpp
+iostream
+-
+Person.hxx
+/home/edbipjr/myLab/c++/Person/Person.hxx
+Dog.hxx
+/home/edbipjr/myLab/c++/Person/Dog.hxx
+

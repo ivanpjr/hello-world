@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/wordFrequency.dir/main.cpp.o  -o wordFrequency 

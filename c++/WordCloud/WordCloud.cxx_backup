@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <vector>
+#include <sstream>
+
+using namespace std;
+
+//TODO: funct strip from string utils should be here
+
+int main(int argc, char* args[]) {
+
+//    cout << "0:" << args[0] << endl;
+//    cout << "1:" << args[1] << endl;
+//    cout << "2:" << args[2] << endl;
+    if (argc != 1) {
+        cerr << "Syntax: WordCloud < input_filename > output_filename.html" << endl;
+        return -1;
+    }
+
+    int c=0;
+    for(string line; getline(cin, line);c++){
+        cout << "L1: " << line << endl;
+        if (c==5) break;
+
+        string newLine;
+        transform(begin(line), end(line), begin(newLine), [](char ch){
+            cout << ch;
+            isalpha(ch)? : ch=' ';
+            cout << ch;
+            return 0;
+        } );
+
+        cout << endl << "L2: " << newLine << endl;
+
+        istringstream newLineStream{line};
+        map <string, unsigned> freqs;
+        for (string word; newLineStream >> word; ) {
+           freqs[word]++;
+        }
+
+        for (auto [word, freq] : freqs) {
+            cout << word << " : " << freq << endl;
+        }
+
+    }
+
+    return 0;
+}
