@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Dummy.dir/Dummy.cxx.o  -o Dummy 
