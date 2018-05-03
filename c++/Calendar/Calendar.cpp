@@ -36,21 +36,25 @@ If you have some spare time, you can add options to
 #include <stdexcept>
 using namespace std;
 
-void printCalendar (int year, int month);
-void showHelp();
+void printCalendar (int year, int month, const string& ws);
+
+void showHelp(){
+    cout << "Syntax:" << endl
+         << "./Calendar [-l] [-h] [-m month] [-y year] [-nm num_monts] [-ws week_start]" << endl
+         << "\t-l            \tEnable logging (debug purposes)" << endl
+         << "\t-h            \tShows this help" << endl
+         << "\t-m month      \tMonth for the Calendar in numeric value, e.g.: -m 5. Must be 0 < value <= 12." << endl
+         << "\t-y year       \tYear for the Calendar in numeric value, e.g.: -y 2018. Must be -1 < value." << endl
+         << "\t-nm num_months\tNumber of months to print out in numeric value, e.g.: -nm 3. Must be 0 < value <= 24." << endl
+         << "\t-ws week_start\tWeek starting day in string value, default is Sun. Allowed values: [Sun|Mon]." << endl
+         << endl;
+    return;
+}
 
 //Initialize stuff
 bool log=false; //debugging logs
 
-map<int,string> weekDays{  //Days of the Week
-        {0,"Sun"},
-        {1,"Mon"},
-        {2,"Tue"},
-        {3,"Wed"},
-        {4,"Thu"},
-        {5,"Fri"},
-        {6,"Sat"}
-};
+map<int,string> weekDays;
 
 map<int,pair<string, int>> months{  // Months and days per month
         {1,make_pair("January", 31)},
@@ -76,6 +80,7 @@ int main(int argc, char* argv[]) {
     int year = now->tm_year + 1900;  //tm_year is 1900-based
     int month = now->tm_mon + 1;  //tm_mon is 0-based, adjust by adding 1
     int numMonths = 1; // default is to print out only one month
+    string ws = "Sun"; // default is to start on Sunday (0)
 
 // Treat arguments
     try {
@@ -83,7 +88,7 @@ int main(int argc, char* argv[]) {
 
             string arg = argv[k];
 
-            if (arg != "-h" && arg != "-m" && arg != "-y" && arg != "-nm" && arg != "-l") {
+            if (arg != "-l" && arg != "-h" && arg != "-m" && arg != "-y" && arg != "-nm" && arg != "-ws") {
                 throw invalid_argument(arg);
 
             } else if (arg == "-h") {
@@ -108,6 +113,12 @@ int main(int argc, char* argv[]) {
                     throw invalid_argument(arg);
                 }
 
+            } else if (arg == "-ws") {
+                ws = argv[++k];
+                if (ws != "Sun" && ws != "Mon") {
+                    throw invalid_argument(arg);
+                }
+
             } else if (arg == "-l") {
                 log = true;
             }
@@ -118,6 +129,7 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
+// Print out current date/time, debugging purposes only
     if (log) clog << "DoW: 0:Sun, 1:Mon, 2:Tue, 3:Wed, 4:Thu, 5:Fri, 6:Sat" << endl;
     if (log) clog << "Now:  "  << (now->tm_year + 1900) << '-'
                   << (now->tm_mon + 1) << "-"
@@ -127,6 +139,30 @@ int main(int argc, char* argv[]) {
                   <<  now->tm_sec << " DoW: "
                   <<  now->tm_wday << "."
                   << "\n";
+
+//Fix the offset for week starting day
+    if (ws == "Sun") {
+        weekDays = {  //Days of the Week
+                {0,"Sun"},
+                {1,"Mon"},
+                {2,"Tue"},
+                {3,"Wed"},
+                {4,"Thu"},
+                {5,"Fri"},
+                {6,"Sat"}
+        };
+    }
+    else if (ws == "Mon")  {
+        weekDays = {  //Days of the Week
+                {0,"Mon"},
+                {1,"Tue"},
+                {2,"Wed"},
+                {3,"Thu"},
+                {4,"Fri"},
+                {5,"Sat"},
+                {6,"Sun"}
+        };
+    }
 
 //Fix the number of days in february for leap years
     int daysFeb;
@@ -144,25 +180,14 @@ int main(int argc, char* argv[]) {
             month=1;
         }
         if (log) clog << "Calling printCalendar( " << year << ", " << month << " )" << endl;
-        printCalendar(year, month++);
+        printCalendar(year, month++, ws);
     }
 
     return 0;
 }
 
-void showHelp(){
-    cout << "Syntax:" << endl
-         << "./Calendar [-l] [-h] [-m month] [-y year]" << endl
-         << "\t-l        \tEnable logging (debug purposes)" << endl
-         << "\t-h        \tShows this help" << endl
-         << "\t-m month  \tMonth for the Calendar in numeric value, e.g.: -m 5. Must be 0 < value <= 12." << endl
-         << "\t-y year   \tYear for the Calendar in numeric value, e.g.: -y 2018. Must be -1 < value." << endl
-         << "\t-nm months\tNumber of months to print out in numeric value, e.g.: -nm 3. Must be 0 < value <= 24." << endl
-         << endl;
-    return;
-}
 
-void printCalendar (int year, int month){
+void printCalendar (int year, int month, const string& ws){
 
 //Calculate day of the week based on input values for month and year, or current values if no input
     tm inputDate = { 0, 0, 0, 1, month - 1, year - 1900 }; // second, minute, hour, 1-based day, 0-based month, year since 1900
@@ -185,6 +210,13 @@ void printCalendar (int year, int month){
 
 //Print out days, in 7 columns
     int col;
+    if (log) cout << "dow: " << dow << endl;
+    if (ws == "Mon") {
+        if (dow == 0)
+            dow = 6;
+        else
+            dow--;
+    }
     for (col=1; col<=dow; col++){
         cout << "\t";
     }
