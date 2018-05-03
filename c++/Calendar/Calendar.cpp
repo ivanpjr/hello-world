@@ -129,11 +129,7 @@ int main(int argc, char* argv[]) {
 
 //Print out calendar
     printCalendar(year, month);
-
-//Print out calendar
-    month++;
-    printCalendar(year, month);
-
+    
     return 0;
 }
 
