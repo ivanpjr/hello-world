@@ -75,6 +75,7 @@ int main(int argc, char* argv[]) {
     tm* now = localtime(&t);
     int year = now->tm_year + 1900;  //tm_year is 1900-based
     int month = now->tm_mon + 1;  //tm_mon is 0-based, adjust by adding 1
+    int numMonths = 1; // default is to print out only one month
 
 // Treat arguments
     try {
@@ -85,10 +86,11 @@ int main(int argc, char* argv[]) {
             if (arg != "-h" && arg != "-m" && arg != "-y" && arg != "-nm" && arg != "-l") {
                 throw invalid_argument(arg);
 
-            } else if (arg == "-h")
+            } else if (arg == "-h") {
                 showHelp();
+                return 0;
 
-            else if (arg == "-m") {
+            } else if (arg == "-m") {
                 month = static_cast<int>(stoi(argv[++k]));
                 if ((month < 1) || (month > 12)) {
                     throw invalid_argument(arg);
@@ -100,8 +102,15 @@ int main(int argc, char* argv[]) {
                     throw invalid_argument(arg);
                 }
 
-            } else if (arg == "-l")
+            } else if (arg == "-nm") {
+                numMonths = static_cast<int>(stoi(argv[++k]));
+                if ((numMonths < 1) || (numMonths > 24)) {
+                    throw invalid_argument(arg);
+                }
+
+            } else if (arg == "-l") {
                 log = true;
+            }
         }
     } catch (exception& e) {
         cerr << endl << "\033[0;31m" << "Invalid argument: " << e.what() << "\033[0m" << endl << endl;
@@ -126,20 +135,29 @@ int main(int argc, char* argv[]) {
     else
         daysFeb = 28;
     months.find(2)->second.second = daysFeb;
+    if (log) clog << "daysFeb: " << daysFeb << endl;
 
 //Print out calendar
-    printCalendar(year, month);
-    
+    for (int m=1; m<=numMonths; m++){
+        if(month>12) {  // If December is passed, increment the year and reset the month to January
+            year++;
+            month=1;
+        }
+        if (log) clog << "Calling printCalendar( " << year << ", " << month << " )" << endl;
+        printCalendar(year, month++);
+    }
+
     return 0;
 }
 
 void showHelp(){
     cout << "Syntax:" << endl
          << "./Calendar [-l] [-h] [-m month] [-y year]" << endl
-         << "\t-l      \tEnable logging" << endl
-         << "\t-h      \tShows this help" << endl
-         << "\t-m month\tMonth for the Calendar in numeric value, e.g.: -m 5" << endl
-         << "\t-y year \tYear for the Calendar in numeric value, e.g.: -y 2018" << endl
+         << "\t-l        \tEnable logging (debug purposes)" << endl
+         << "\t-h        \tShows this help" << endl
+         << "\t-m month  \tMonth for the Calendar in numeric value, e.g.: -m 5. Must be 0 < value <= 12." << endl
+         << "\t-y year   \tYear for the Calendar in numeric value, e.g.: -y 2018. Must be -1 < value." << endl
+         << "\t-nm months\tNumber of months to print out in numeric value, e.g.: -nm 3. Must be 0 < value <= 24." << endl
          << endl;
     return;
 }
