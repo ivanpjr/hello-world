@@ -26,8 +26,8 @@
       <file leaf-file-name="Calendar.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Calendar.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="309">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="e#883#902#0" expanded="true" />
               </folding>
@@ -41,6 +41,7 @@
     <findStrings>
       <find>cerr</find>
       <find>map</find>
+      <find>weekDays</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -103,7 +104,7 @@
   </component>
   <component name="RunManager" selected="Application.Calendar">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calendar" RUN_TARGET_NAME="Calendar" EXPLICIT_BUILD_TARGET_NAME="all" />
-    <configuration name="Calendar" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Calendar" TARGET_NAME="Calendar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calendar" RUN_TARGET_NAME="Calendar" />
+    <configuration name="Calendar" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="-l -m 5 -ws 3" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Calendar" TARGET_NAME="Calendar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calendar" RUN_TARGET_NAME="Calendar" />
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.Calendar" />
@@ -120,18 +121,18 @@
       <option name="presentableId" value="Default" />
       <updated>1525329133171</updated>
       <workItem from="1525329135577" duration="26110000" />
-      <workItem from="1525416273932" duration="4727000" />
+      <workItem from="1525416273932" duration="23086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30837000" />
+    <option name="totallyTimeSpent" value="49196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1293" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15826772" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.072440945" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32879046" />
       <window_info anchor="bottom" id="CMake" order="7" />
@@ -159,8 +160,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>ws+ws&lt;3?4:-3</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>day1</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Calendar.cpp">
@@ -173,10 +188,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Calendar.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="309">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="e#883#902#0" expanded="true" />
           </folding>
