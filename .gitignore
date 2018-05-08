@@ -1,1 +1,10 @@
-/Debug/
+target/
+.idea/
+.project/
+build/
+*.iml
+*.iws
+*.ipr
+*.log
+*.o
+*.class
